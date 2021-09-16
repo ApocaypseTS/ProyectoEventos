@@ -9,8 +9,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.entity.Motor;
-import pe.edu.upc.service.IMotorService;
+import pe.edu.upc.entity.Rol;
+import pe.edu.upc.service.IRolService;
 
 @Named
 @RequestScoped
@@ -20,54 +20,54 @@ public class RolController implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private IMotorService mService;
-	private Motor motor;
-	List<Motor> listaMotores;
+	private IRolService mService;
+	private Rol rol;
+	List<Rol> listaRoles;
 	
 	@PostConstruct
 	public void init() {
-		this.listaMotores = new ArrayList<Motor>();
-		this.motor = new Motor();
+		this.listaRoles = new ArrayList<Rol>();
+		this.rol = new Rol();
 		this.listar();
 	}
 	
-	public String nuevoMotor() {
-		this.setMotor(new Motor());
-		return "motor.xhtml";
+	public String nuevoRol() {
+		this.setRol(new Rol());
+		return "rol.xhtml";
 	}
 	
 	public void insertar() {
-		mService.insertar(motor);
-		limpiarMotor();
+		mService.insertar(rol);
+		limpiarRol();
 	}
 	
 	public void listar() {
-		listaMotores = mService.listar();
+		listaRoles = mService.listar();
 	}
 
 	public void limpiarMotor() {
 		this.init();
 	}
 	
-	public void eliminar(Motor motor) {
-		mService.eliminar(motor.getId());
+	public void eliminar(Rol rol) {
+		mService.eliminar(rol.getId());
 		this.listar();
 	}
 	
-	public Motor getMotor() {
-		return motor;
+	public Rol getMotor() {
+		return rol;
 	}
 
-	public void setMotor(Motor motor) {
-		this.motor = motor;
+	public void setMotor(Rol rol) {
+		this.rol = rol;
 	}
 
-	public List<Motor> getListaMotores() {
-		return listaMotores;
+	public List<Rol> getListaRoles() {
+		return listaRoles;
 	}
 
-	public void setListaMotores(List<Motor> listaMotores) {
-		this.listaMotores = listaMotores;
+	public void setListaMotores(List<Rol> listaRoles) {
+		this.listaRoles = listaRoles;
 	}
 	
 

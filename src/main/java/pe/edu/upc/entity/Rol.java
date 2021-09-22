@@ -20,7 +20,7 @@ public class Rol implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="nombreRol", nullable=false, length=25)
+	@Column(name="Rol", nullable=false, length=25)
 	private String nombreRol;
 
 	public Rol() {

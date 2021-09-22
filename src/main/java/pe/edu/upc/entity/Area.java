@@ -20,12 +20,11 @@ public class Area implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="nombreArea", nullable=false, length=50)
+	@Column(name="Area", nullable=false, length=50)
 	private String nombreArea;
 
 	public Area() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Area(int id, String nombreArea) {

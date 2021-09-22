@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +22,19 @@ public class Disponible implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private boolean bdisponible;
+	@ManyToOne
+	@JoinColumn(name="id", nullable=false)
+	private Servicio servicio;
+	
+	@ManyToOne
+	@JoinColumn(name="id", nullable=false)
+	private Usuario usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="id", nullable=false)
+	private PrestamistaxServicio prestamistaxServicio;
+	
+	private boolean disponible;
 	
 	private Date fechadisponible;
 
@@ -29,10 +43,14 @@ public class Disponible implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Disponible(int id, boolean bdisponible, Date fechadisponible) {
+	public Disponible(int id, Servicio servicio, Usuario usuario, PrestamistaxServicio prestamistaxServicio,
+			boolean disponible, Date fechadisponible) {
 		super();
 		this.id = id;
-		this.bdisponible = bdisponible;
+		this.servicio = servicio;
+		this.usuario = usuario;
+		this.prestamistaxServicio = prestamistaxServicio;
+		this.disponible = disponible;
 		this.fechadisponible = fechadisponible;
 	}
 
@@ -44,12 +62,36 @@ public class Disponible implements Serializable {
 		this.id = id;
 	}
 
-	public boolean isBdisponible() {
-		return bdisponible;
+	public Servicio getServicio() {
+		return servicio;
 	}
 
-	public void setBdisponible(boolean bdisponible) {
-		this.bdisponible = bdisponible;
+	public void setServicio(Servicio servicio) {
+		this.servicio = servicio;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public PrestamistaxServicio getPrestamistaxServicio() {
+		return prestamistaxServicio;
+	}
+
+	public void setPrestamistaxServicio(PrestamistaxServicio prestamistaxServicio) {
+		this.prestamistaxServicio = prestamistaxServicio;
+	}
+
+	public boolean isDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
 	}
 
 	public Date getFechadisponible() {

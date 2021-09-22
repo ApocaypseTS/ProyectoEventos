@@ -45,7 +45,7 @@ public class RolController implements Serializable {
 		listaRoles = mService.listar();
 	}
 
-	public void limpiarMotor() {
+	public void limpiarRol() {
 		this.init();
 	}
 	
@@ -54,11 +54,11 @@ public class RolController implements Serializable {
 		this.listar();
 	}
 	
-	public Rol getMotor() {
+	public Rol getRol() {
 		return rol;
 	}
 
-	public void setMotor(Rol rol) {
+	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
 
@@ -66,7 +66,7 @@ public class RolController implements Serializable {
 		return listaRoles;
 	}
 
-	public void setListaMotores(List<Rol> listaRoles) {
+	public void setListaRoles(List<Rol> listaRoles) {
 		this.listaRoles = listaRoles;
 	}
 	

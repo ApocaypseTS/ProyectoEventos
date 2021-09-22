@@ -24,7 +24,7 @@ public class Reserva implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="id", nullable=false)
-	private Servicio servicio;
+	private Usuario usuario;
 	
 	@ManyToOne
 	@JoinColumn(name="id", nullable=false)
@@ -32,11 +32,7 @@ public class Reserva implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="id", nullable=false)
-	private Cliente cliente;
-
-	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
-	private Prestamista prestamista;
+	private PrestamistaxServicio prestamistaxServicio;
 	
 	private Date reserva;
 
@@ -45,14 +41,13 @@ public class Reserva implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(int id, Servicio servicio, Ubicacion ubicacion, Cliente cliente, Prestamista prestamista,
+	public Reserva(int id, Usuario usuario, Ubicacion ubicacion, PrestamistaxServicio prestamistaxServicio,
 			Date reserva) {
 		super();
 		this.id = id;
-		this.servicio = servicio;
+		this.usuario = usuario;
 		this.ubicacion = ubicacion;
-		this.cliente = cliente;
-		this.prestamista = prestamista;
+		this.prestamistaxServicio = prestamistaxServicio;
 		this.reserva = reserva;
 	}
 
@@ -64,12 +59,12 @@ public class Reserva implements Serializable {
 		this.id = id;
 	}
 
-	public Servicio getServicio() {
-		return servicio;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setServicio(Servicio servicio) {
-		this.servicio = servicio;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Ubicacion getUbicacion() {
@@ -80,20 +75,12 @@ public class Reserva implements Serializable {
 		this.ubicacion = ubicacion;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public PrestamistaxServicio getPrestamistaxServicio() {
+		return prestamistaxServicio;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Prestamista getPrestamista() {
-		return prestamista;
-	}
-
-	public void setPrestamista(Prestamista prestamista) {
-		this.prestamista = prestamista;
+	public void setPrestamistaxServicio(PrestamistaxServicio prestamistaxServicio) {
+		this.prestamistaxServicio = prestamistaxServicio;
 	}
 
 	public Date getReserva() {

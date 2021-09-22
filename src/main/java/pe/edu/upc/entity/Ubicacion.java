@@ -20,10 +20,10 @@ public class Ubicacion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="nombreDistrito", nullable=false, length=50)
+	@Column(name="Distrito", nullable=false, length=50)
 	private String nombreDistrito;
 	
-	@Column(name="nombreCalle", nullable=false, length=50)
+	@Column(name="Calle", nullable=false, length=50)
 	private String nombreCalle;
 
 	public Ubicacion() {

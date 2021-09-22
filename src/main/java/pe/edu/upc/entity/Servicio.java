@@ -22,7 +22,7 @@ public class Servicio implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="nombreServicio", nullable=false, length=50)
+	@Column(name="Servicio", nullable=false, length=50)
 	private String nombreServicio;
 	
 	@Column(name="descripcion", nullable=false, length=50)

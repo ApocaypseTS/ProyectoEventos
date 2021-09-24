@@ -35,7 +35,7 @@ public class Usuario implements Serializable {
 	private String contrasenia;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idRol", nullable=false)
 	private Rol rol;
 
 	public Usuario() {

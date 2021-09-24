@@ -18,7 +18,7 @@ public class Area implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idArea;
 	
 	@Column(name="Area", nullable=false, length=50)
 	private String nombreArea;
@@ -29,16 +29,16 @@ public class Area implements Serializable {
 
 	public Area(int id, String nombreArea) {
 		super();
-		this.id = id;
+		this.idArea = id;
 		this.nombreArea = nombreArea;
 	}
 
 	public int getId() {
-		return id;
+		return idArea;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idArea = id;
 	}
 
 	public String getNombreArea() {

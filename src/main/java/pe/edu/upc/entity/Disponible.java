@@ -20,18 +20,18 @@ public class Disponible implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idDisponible;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idServicio", nullable=false)
 	private Servicio servicio;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idUsuario", nullable=false)
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idPrestamistaxServicio", nullable=false)
 	private PrestamistaxServicio prestamistaxServicio;
 	
 	private boolean disponible;
@@ -46,7 +46,7 @@ public class Disponible implements Serializable {
 	public Disponible(int id, Servicio servicio, Usuario usuario, PrestamistaxServicio prestamistaxServicio,
 			boolean disponible, Date fechadisponible) {
 		super();
-		this.id = id;
+		this.idDisponible = id;
 		this.servicio = servicio;
 		this.usuario = usuario;
 		this.prestamistaxServicio = prestamistaxServicio;
@@ -55,11 +55,11 @@ public class Disponible implements Serializable {
 	}
 
 	public int getId() {
-		return id;
+		return idDisponible;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idDisponible = id;
 	}
 
 	public Servicio getServicio() {

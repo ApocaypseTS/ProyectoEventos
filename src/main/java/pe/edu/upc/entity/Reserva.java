@@ -20,18 +20,18 @@ public class Reserva implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idReserva;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idUsuario", nullable=false)
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idUbicacion", nullable=false)
 	private Ubicacion ubicacion;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idPrestamistaxServicio", nullable=false)
 	private PrestamistaxServicio prestamistaxServicio;
 	
 	private Date reserva;
@@ -44,7 +44,7 @@ public class Reserva implements Serializable {
 	public Reserva(int id, Usuario usuario, Ubicacion ubicacion, PrestamistaxServicio prestamistaxServicio,
 			Date reserva) {
 		super();
-		this.id = id;
+		this.idReserva = id;
 		this.usuario = usuario;
 		this.ubicacion = ubicacion;
 		this.prestamistaxServicio = prestamistaxServicio;
@@ -52,11 +52,11 @@ public class Reserva implements Serializable {
 	}
 
 	public int getId() {
-		return id;
+		return idReserva;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idReserva = id;
 	}
 
 	public Usuario getUsuario() {

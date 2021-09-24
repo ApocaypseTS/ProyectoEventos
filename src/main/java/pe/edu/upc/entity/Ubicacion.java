@@ -18,7 +18,7 @@ public class Ubicacion implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idUbicacion;
 	
 	@Column(name="Distrito", nullable=false, length=50)
 	private String nombreDistrito;
@@ -33,17 +33,17 @@ public class Ubicacion implements Serializable {
 
 	public Ubicacion(int id, String nombreDistrito, String nombreCalle) {
 		super();
-		this.id = id;
+		this.idUbicacion = id;
 		this.nombreDistrito = nombreDistrito;
 		this.nombreCalle = nombreCalle;
 	}
 
 	public int getId() {
-		return id;
+		return idUbicacion;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idUbicacion = id;
 	}
 
 	public String getNombreDistrito() {

@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,11 +25,11 @@ public class PrestamistaxServicio implements Serializable {
 	@Column(name="reseña", nullable=false, length=50)
 	private String resenia;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="idUsuario", nullable=false)
 	private Usuario usuario;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="idServicio", nullable=false)
 	private Servicio servicio;
 	

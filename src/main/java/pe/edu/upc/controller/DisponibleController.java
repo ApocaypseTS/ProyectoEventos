@@ -50,7 +50,7 @@ public class DisponibleController implements Serializable {
 	}
 	
 	public void eliminar(Disponible disponible) {
-		mService.eliminar(disponible.getId());
+		mService.eliminar(disponible.getIdDisponible());
 		this.listar();
 	}
 	

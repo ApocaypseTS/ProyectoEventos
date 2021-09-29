@@ -20,16 +20,16 @@ public class Servicio implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idServicio;
 	
-	@Column(name="nombreServicio", nullable=false, length=50)
+	@Column(name="Servicio", nullable=false, length=50)
 	private String nombreServicio;
 	
 	@Column(name="descripcion", nullable=false, length=50)
 	private String descripcion;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idArea", nullable=false)
 	private Area area;
 
 	public Servicio() {
@@ -39,18 +39,18 @@ public class Servicio implements Serializable {
 
 	public Servicio(int id, String nombreServicio, String descripcion, Area area) {
 		super();
-		this.id = id;
+		this.idServicio = id;
 		this.nombreServicio = nombreServicio;
 		this.descripcion = descripcion;
 		this.area = area;
 	}
 
 	public int getId() {
-		return id;
+		return idServicio;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idServicio = id;
 	}
 
 	public String getNombreServicio() {

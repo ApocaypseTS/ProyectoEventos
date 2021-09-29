@@ -18,28 +18,27 @@ public class Area implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idArea;
 	
-	@Column(name="nombreArea", nullable=false, length=50)
+	@Column(name="Area", nullable=false, length=50)
 	private String nombreArea;
 
 	public Area() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Area(int id, String nombreArea) {
 		super();
-		this.id = id;
+		this.idArea = id;
 		this.nombreArea = nombreArea;
 	}
 
 	public int getId() {
-		return id;
+		return idArea;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idArea = id;
 	}
 
 	public String getNombreArea() {

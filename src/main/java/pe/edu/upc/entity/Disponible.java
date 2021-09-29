@@ -23,14 +23,6 @@ public class Disponible implements Serializable {
 	private int idDisponible;
 	
 	@ManyToOne
-	@JoinColumn(name="idServicio", nullable=false)
-	private Servicio servicio;
-	
-	@ManyToOne
-	@JoinColumn(name="idUsuario", nullable=false)
-	private Usuario usuario;
-	
-	@ManyToOne
 	@JoinColumn(name="idPrestamistaxServicio", nullable=false)
 	private PrestamistaxServicio prestamistaxServicio;
 	
@@ -43,39 +35,21 @@ public class Disponible implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Disponible(int id, Servicio servicio, Usuario usuario, PrestamistaxServicio prestamistaxServicio,
-			boolean disponible, Date fechadisponible) {
+	public Disponible(int idDisponible, PrestamistaxServicio prestamistaxServicio, boolean disponible,
+			Date fechadisponible) {
 		super();
-		this.idDisponible = id;
-		this.servicio = servicio;
-		this.usuario = usuario;
+		this.idDisponible = idDisponible;
 		this.prestamistaxServicio = prestamistaxServicio;
 		this.disponible = disponible;
 		this.fechadisponible = fechadisponible;
 	}
 
-	public int getId() {
+	public int getIdDisponible() {
 		return idDisponible;
 	}
 
-	public void setId(int id) {
-		this.idDisponible = id;
-	}
-
-	public Servicio getServicio() {
-		return servicio;
-	}
-
-	public void setServicio(Servicio servicio) {
-		this.servicio = servicio;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setIdDisponible(int idDisponible) {
+		this.idDisponible = idDisponible;
 	}
 
 	public PrestamistaxServicio getPrestamistaxServicio() {
@@ -101,6 +75,7 @@ public class Disponible implements Serializable {
 	public void setFechadisponible(Date fechadisponible) {
 		this.fechadisponible = fechadisponible;
 	}
+
 	
 	
 

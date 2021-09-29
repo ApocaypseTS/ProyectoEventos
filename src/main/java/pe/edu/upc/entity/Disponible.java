@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +20,13 @@ public class Disponible implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idDisponible;
 	
-	private boolean bdisponible;
+	@ManyToOne
+	@JoinColumn(name="idPrestamistaxServicio", nullable=false)
+	private PrestamistaxServicio prestamistaxServicio;
+	
+	private boolean disponible;
 	
 	private Date fechadisponible;
 
@@ -29,27 +35,37 @@ public class Disponible implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Disponible(int id, boolean bdisponible, Date fechadisponible) {
+	public Disponible(int idDisponible, PrestamistaxServicio prestamistaxServicio, boolean disponible,
+			Date fechadisponible) {
 		super();
-		this.id = id;
-		this.bdisponible = bdisponible;
+		this.idDisponible = idDisponible;
+		this.prestamistaxServicio = prestamistaxServicio;
+		this.disponible = disponible;
 		this.fechadisponible = fechadisponible;
 	}
 
-	public int getId() {
-		return id;
+	public int getIdDisponible() {
+		return idDisponible;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdDisponible(int idDisponible) {
+		this.idDisponible = idDisponible;
 	}
 
-	public boolean isBdisponible() {
-		return bdisponible;
+	public PrestamistaxServicio getPrestamistaxServicio() {
+		return prestamistaxServicio;
 	}
 
-	public void setBdisponible(boolean bdisponible) {
-		this.bdisponible = bdisponible;
+	public void setPrestamistaxServicio(PrestamistaxServicio prestamistaxServicio) {
+		this.prestamistaxServicio = prestamistaxServicio;
+	}
+
+	public boolean isDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
 	}
 
 	public Date getFechadisponible() {
@@ -59,6 +75,7 @@ public class Disponible implements Serializable {
 	public void setFechadisponible(Date fechadisponible) {
 		this.fechadisponible = fechadisponible;
 	}
+
 	
 	
 

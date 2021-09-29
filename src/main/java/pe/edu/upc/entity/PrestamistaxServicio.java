@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,84 +20,83 @@ public class PrestamistaxServicio implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idPrestamistaxServicio;
 	
-	@Column(name="resenia", nullable=false, length=50)
+	@Column(name="reseña", nullable=false, length=50)
 	private String resenia;
 	
-	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
-	private Prestamista prestamista;
+	@OneToOne
+	@JoinColumn(name="idUsuario", nullable=false)
+	private Usuario usuario;
 	
-	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@OneToOne
+	@JoinColumn(name="idServicio", nullable=false)
 	private Servicio servicio;
 	
-	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
-	private Disponible disponible;
 	
 	private int precio;
+
 
 	public PrestamistaxServicio() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PrestamistaxServicio(int id, String resenia, Prestamista prestamista, Servicio servicio,
-			Disponible disponible, int precio) {
+
+	public PrestamistaxServicio(int id, String resenia, Usuario usuario, Servicio servicio, int precio) {
 		super();
-		this.id = id;
+		this.idPrestamistaxServicio = id;
 		this.resenia = resenia;
-		this.prestamista = prestamista;
+		this.usuario = usuario;
 		this.servicio = servicio;
-		this.disponible = disponible;
 		this.precio = precio;
 	}
 
+
 	public int getId() {
-		return id;
+		return idPrestamistaxServicio;
 	}
 
+
 	public void setId(int id) {
-		this.id = id;
+		this.idPrestamistaxServicio = id;
 	}
+
 
 	public String getResenia() {
 		return resenia;
 	}
 
+
 	public void setResenia(String resenia) {
 		this.resenia = resenia;
 	}
 
-	public Prestamista getPrestamista() {
-		return prestamista;
+
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setPrestamista(Prestamista prestamista) {
-		this.prestamista = prestamista;
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
+
 
 	public Servicio getServicio() {
 		return servicio;
 	}
 
+
 	public void setServicio(Servicio servicio) {
 		this.servicio = servicio;
 	}
 
-	public Disponible getDisponible() {
-		return disponible;
-	}
-
-	public void setDisponible(Disponible disponible) {
-		this.disponible = disponible;
-	}
 
 	public int getPrecio() {
 		return precio;
 	}
+
 
 	public void setPrecio(int precio) {
 		this.precio = precio;

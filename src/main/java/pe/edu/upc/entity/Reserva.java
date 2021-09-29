@@ -20,23 +20,19 @@ public class Reserva implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int idReserva;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
-	private Servicio servicio;
+	@JoinColumn(name="idUsuario", nullable=false)
+	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
+	@JoinColumn(name="idUbicacion", nullable=false)
 	private Ubicacion ubicacion;
 	
 	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
-	private Cliente cliente;
-
-	@ManyToOne
-	@JoinColumn(name="id", nullable=false)
-	private Prestamista prestamista;
+	@JoinColumn(name="idPrestamistaxServicio", nullable=false)
+	private PrestamistaxServicio prestamistaxServicio;
 	
 	private Date reserva;
 
@@ -45,31 +41,30 @@ public class Reserva implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(int id, Servicio servicio, Ubicacion ubicacion, Cliente cliente, Prestamista prestamista,
+	public Reserva(int id, Usuario usuario, Ubicacion ubicacion, PrestamistaxServicio prestamistaxServicio,
 			Date reserva) {
 		super();
-		this.id = id;
-		this.servicio = servicio;
+		this.idReserva = id;
+		this.usuario = usuario;
 		this.ubicacion = ubicacion;
-		this.cliente = cliente;
-		this.prestamista = prestamista;
+		this.prestamistaxServicio = prestamistaxServicio;
 		this.reserva = reserva;
 	}
 
 	public int getId() {
-		return id;
+		return idReserva;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idReserva = id;
 	}
 
-	public Servicio getServicio() {
-		return servicio;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setServicio(Servicio servicio) {
-		this.servicio = servicio;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Ubicacion getUbicacion() {
@@ -80,20 +75,12 @@ public class Reserva implements Serializable {
 		this.ubicacion = ubicacion;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public PrestamistaxServicio getPrestamistaxServicio() {
+		return prestamistaxServicio;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Prestamista getPrestamista() {
-		return prestamista;
-	}
-
-	public void setPrestamista(Prestamista prestamista) {
-		this.prestamista = prestamista;
+	public void setPrestamistaxServicio(PrestamistaxServicio prestamistaxServicio) {
+		this.prestamistaxServicio = prestamistaxServicio;
 	}
 
 	public Date getReserva() {
